@@ -1,0 +1,37 @@
+<%- include('./partials/head.ejs') %> 
+
+<body>
+  <div id="page">
+    <div class="card-content">
+      <h1>Pessoas Cadastradas</h1>
+      <a href="/cadastro">Cadastro</a>
+
+      <div class="filter-block">
+        <select name="occupation" id="occupation">
+          <option value="" disabled selected>Filtrar por profissão...</option>
+          <option value="em desenv."> EM DESENV. </option>
+        </select>
+        <i class="fas fa-filter"></i>
+      </div>
+
+      <div class="people-table">
+        <table>
+          <tr>
+            <% funcionariosParams.columns.forEach( column => { %>
+                <th> <%- column %> </th>
+            <% }) %>
+          </tr>
+            <% funcionariosParams.rows.forEach( row => { %>
+            <tr>
+              <% funcionariosParams.columns.forEach( column => { %>
+                <td> <%- row[column] %> </td>
+              <% }) %>
+            </tr>
+          <% }) %>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
